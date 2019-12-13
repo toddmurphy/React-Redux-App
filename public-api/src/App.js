@@ -20,7 +20,7 @@ function App(props) {
     <div className="App">
       <div>
         <h1>{props.greeting}</h1>
-        {props.getCharacterData && 
+        {props.isFetching && 
         <Loader
          type="Puff"
          color="#00BFFF"
@@ -28,7 +28,7 @@ function App(props) {
          width={100}
         />}
         {/* <button onClick={()=> props.getCharacterData()} >click me</button> */}
-        <CharacterList characters={props.characters} />
+        {props.characters &&  <CharacterList characters={props.characters} />}
       </div>
     </div>
   );
@@ -36,7 +36,11 @@ function App(props) {
 
 const mapStateToProps = (state) => {
   return {
-    ...state
+    // ...state
+    greeting: state.greeting,
+    isFetching: state.isFetching,
+    error: state.error,
+    characters: state.characters
   };
 };
 

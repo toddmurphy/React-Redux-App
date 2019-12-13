@@ -8,7 +8,7 @@ const initialState = {
     greeting: "hello breaking bad",
     isFetching: false,
     error: '',
-    characters: []
+    characters: null
 }
 
 const reducer = (state = initialState, action) => {
@@ -22,7 +22,8 @@ const reducer = (state = initialState, action) => {
         case FETCH_CHARACTER_SUCCESS:
             return{
                 ...state,
-                characters: action.payload
+                characters: action.payload,
+                isFetching: false
             }
 
         default:
