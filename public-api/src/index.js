@@ -7,11 +7,11 @@ import './index.css';
 import App from './App';
 
 //import reducer
-import characterReducer from './reducers/characterReducer';
+import CharacterReducer from './reducers/characterReducer';
 
 
 //Step 1: create our store
-const store = createStore(characterReducer, applyMiddleware(thunk))
+const store = createStore(CharacterReducer, applyMiddleware(thunk))
 
 ReactDOM.render(
 <Provider store={store}>

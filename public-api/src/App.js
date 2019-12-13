@@ -9,10 +9,11 @@ import getCharacterData from './actions/characterActions';
 
 
 function App(props) {
-
+  
   useEffect(() => {
+    console.log('im in useEffect getCharacter data invoked')
     props.getCharacterData()
-  }, [])
+  }, [props])
 
 
   console.log(props)

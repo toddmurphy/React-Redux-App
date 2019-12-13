@@ -10,6 +10,7 @@ export const FETCH_CHARACTER_FAILURE = 'FETCH_CHARACTER_FAILURE'
 
 //async Action Creator
 const getCharacterData = () => dispatch => {
+    console.log('in character data')
     dispatch({type: FETCH_CHARACTER_START});
     axios.get('https://www.breakingbadapi.com/api/characters')
         .then(response => {
