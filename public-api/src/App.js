@@ -1,14 +1,37 @@
-import React from 'react';
+import React, {useEffect} from 'react';
+import {connect} from 'react-redux';
 import './App.css';
+import CharacterList from './components/CharacterList';
 
-function App() {
+import getCharacterData from './actions/characterActions';
+
+
+
+function App(props) {
+
+  useEffect(() => {
+    props.getCharacterData()
+  }, [])
+
+
+  console.log(props)
   return (
     <div className="App">
       <div>
-        <h1>Redux public api project</h1>
+        <h1>{props.greeting}</h1>
+        {/* <button onClick={()=> props.getCharacterData()} >click me</button> */}
+        <CharacterList characters={props.characters} />
       </div>
     </div>
   );
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    ...state
+  };
+};
+
+export default connect(mapStateToProps, {getCharacterData})(App);
+
+
