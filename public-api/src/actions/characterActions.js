@@ -16,6 +16,9 @@ const getCharacterData = () => dispatch => {
             // console.log(response.data)
             dispatch({type: FETCH_CHARACTER_SUCCESS, payload: response.data})
         })
+        .catch(error => {
+            dispatch({type: FETCH_CHARACTER_FAILURE, payload: error.payload})
+        })
 }
 
 export default getCharacterData;

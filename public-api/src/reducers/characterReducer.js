@@ -13,6 +13,12 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
     switch(action.type){
+        case FETCH_CHARACTER_START:
+            return{
+                ...state,
+                isFetching: true
+            }
+
         case FETCH_CHARACTER_SUCCESS:
             return{
                 ...state,
